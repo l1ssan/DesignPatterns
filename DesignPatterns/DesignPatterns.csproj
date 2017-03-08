@@ -48,6 +48,12 @@
     <Compile Include="Abstract Factory\Player.cs" />
     <Compile Include="Abstract Factory\PlayerFactory.cs" />
     <Compile Include="Abstract Factory\Warrior.cs" />
+    <Compile Include="Adapter\AdapterMacheteToWeapon.cs" />
+    <Compile Include="Adapter\Glock.cs" />
+    <Compile Include="Adapter\IColdWeapon.cs" />
+    <Compile Include="Adapter\IWeapon.cs" />
+    <Compile Include="Adapter\Machete.cs" />
+    <Compile Include="Adapter\Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
