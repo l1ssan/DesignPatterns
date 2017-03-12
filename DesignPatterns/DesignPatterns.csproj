@@ -54,6 +54,12 @@
     <Compile Include="Adapter\IWeapon.cs" />
     <Compile Include="Adapter\Machete.cs" />
     <Compile Include="Adapter\Player.cs" />
+    <Compile Include="Bridge\Archer.cs" />
+    <Compile Include="Bridge\Bow.cs" />
+    <Compile Include="Bridge\Character.cs" />
+    <Compile Include="Bridge\IWeapon.cs" />
+    <Compile Include="Bridge\Sword.cs" />
+    <Compile Include="Bridge\Warrior.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

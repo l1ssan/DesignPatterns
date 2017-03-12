@@ -1,6 +1,7 @@
 ﻿using System;
 using DesignPatterns.Abstract_Factory;
 using DesignPatterns.Adapter;
+using DesignPatterns.Bridge;
 using Player = DesignPatterns.Abstract_Factory.Player;
 
 namespace DesignPatterns
@@ -20,7 +21,21 @@ namespace DesignPatterns
 
             //check adapter
             AdapterSample();
+            //check bridge 
+           
+            Character myCharacter = new Warrior(new Sword());
+            myCharacter.KillMobs();
+            myCharacter.GetExp();
+
+            myCharacter.Weapon = new Bridge.Bow();
+
+            //need to kill flying mobs
+            myCharacter.KillMobs();
+            myCharacter.GetExp();
+
             Console.ReadLine();
+
+
         }
 
         public static void AdapterSample()
