@@ -60,6 +60,11 @@
     <Compile Include="Bridge\IWeapon.cs" />
     <Compile Include="Bridge\Sword.cs" />
     <Compile Include="Bridge\Warrior.cs" />
+    <Compile Include="Builder\AdamantitSwordBuilder.cs" />
+    <Compile Include="Builder\Blacksmith.cs" />
+    <Compile Include="Builder\GoodIronSwordBuilder.cs" />
+    <Compile Include="Builder\Sword.cs" />
+    <Compile Include="Builder\SwordBuilder.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

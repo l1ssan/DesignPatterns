@@ -2,7 +2,9 @@
 using DesignPatterns.Abstract_Factory;
 using DesignPatterns.Adapter;
 using DesignPatterns.Bridge;
+using DesignPatterns.Builder;
 using Player = DesignPatterns.Abstract_Factory.Player;
+using Sword = DesignPatterns.Bridge.Sword;
 
 namespace DesignPatterns
 {
@@ -33,6 +35,8 @@ namespace DesignPatterns
             myCharacter.KillMobs();
             myCharacter.GetExp();
 
+           BuilderExample();
+
             Console.ReadLine();
 
 
@@ -50,6 +54,19 @@ namespace DesignPatterns
 
             player.Atack(adoptedWeapon);
 
+        }
+
+        public static void BuilderExample()
+        {
+            Blacksmith blacksmith = new Blacksmith();
+            SwordBuilder builder = new GoodIronSwordBuilder();
+            // выпекаем
+            Builder.Sword IronSword = blacksmith.ForgeSword(builder);
+            Console.WriteLine(IronSword.ToString());
+            // оздаем билдер для пшеничного хлеба
+            builder = new AdamantitSwordBuilder();
+            Builder.Sword AdamantitSword =  blacksmith.ForgeSword(builder);
+            Console.WriteLine(AdamantitSword.ToString());
         }
     }
 }
