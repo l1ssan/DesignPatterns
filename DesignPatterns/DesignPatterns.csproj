@@ -65,6 +65,9 @@
     <Compile Include="Builder\GoodIronSwordBuilder.cs" />
     <Compile Include="Builder\Sword.cs" />
     <Compile Include="Builder\SwordBuilder.cs" />
+    <Compile Include="Composite\Category.cs" />
+    <Compile Include="Composite\Component.cs" />
+    <Compile Include="Composite\MenuItem.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

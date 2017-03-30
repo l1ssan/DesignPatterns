@@ -1,8 +1,10 @@
 ﻿using System;
+using System.ComponentModel;
 using DesignPatterns.Abstract_Factory;
 using DesignPatterns.Adapter;
 using DesignPatterns.Bridge;
 using DesignPatterns.Builder;
+using DesignPatterns.Composite;
 using Player = DesignPatterns.Abstract_Factory.Player;
 using Sword = DesignPatterns.Bridge.Sword;
 
@@ -36,6 +38,30 @@ namespace DesignPatterns
             myCharacter.GetExp();
 
            BuilderExample();
+
+            //check composite 
+            var objectsCategory = new Category("Objects");
+            var weaponCategory = new Category("Weapons");
+            var armorCategory = new Category("Armors");
+
+            var item = new MenuItem("Battle Axe");
+            var item1 = new MenuItem("Long Sword");
+
+            var ac = new MenuItem("Plate");
+            var ac1 = new MenuItem("Tights");
+
+            weaponCategory.Add(item);
+            weaponCategory.Add(item1);
+            armorCategory.Add(ac);
+            armorCategory.Add(ac1);
+            objectsCategory.Add(weaponCategory);
+            objectsCategory.Add(armorCategory);
+
+            objectsCategory.Print();
+
+            weaponCategory.Print();
+
+            armorCategory.Print();
 
             Console.ReadLine();
 
