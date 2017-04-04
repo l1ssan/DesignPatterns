@@ -63,6 +63,17 @@ namespace DesignPatterns
 
             armorCategory.Print();
 
+
+            //check decorator
+
+            Decorator.Weapon mysword = new Decorator.Sword("Player1 Sword");
+            Console.WriteLine($"{mysword.Name} cost {mysword.GetCost()} p.");
+            Console.WriteLine("Update my sword");
+       
+            mysword = new Decorator.FireDecorator(mysword);
+            Console.WriteLine($"{mysword.Name} cost {mysword.GetCost()} p.");
+
+
             Console.ReadLine();
 
 

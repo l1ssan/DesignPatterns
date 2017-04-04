@@ -68,6 +68,12 @@
     <Compile Include="Composite\Category.cs" />
     <Compile Include="Composite\Component.cs" />
     <Compile Include="Composite\MenuItem.cs" />
+    <Compile Include="Decorator\FireDecorator.cs" />
+    <Compile Include="Decorator\LightningWeapon.cs" />
+    <Compile Include="Decorator\MagicSword.cs" />
+    <Compile Include="Decorator\Sword.cs" />
+    <Compile Include="Decorator\Weapon.cs" />
+    <Compile Include="Decorator\WeaponDecorator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
