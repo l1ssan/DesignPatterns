@@ -74,6 +74,11 @@
     <Compile Include="Decorator\Sword.cs" />
     <Compile Include="Decorator\Weapon.cs" />
     <Compile Include="Decorator\WeaponDecorator.cs" />
+    <Compile Include="Facade\Mage.cs" />
+    <Compile Include="Facade\MagicBook.cs" />
+    <Compile Include="Facade\MagicRitualFacade.cs" />
+    <Compile Include="Facade\MagicTable.cs" />
+    <Compile Include="Facade\ReagentsCreator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

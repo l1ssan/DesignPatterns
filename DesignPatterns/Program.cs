@@ -5,6 +5,7 @@ using DesignPatterns.Adapter;
 using DesignPatterns.Bridge;
 using DesignPatterns.Builder;
 using DesignPatterns.Composite;
+using DesignPatterns.Facade;
 using Player = DesignPatterns.Abstract_Factory.Player;
 using Sword = DesignPatterns.Bridge.Sword;
 
@@ -72,6 +73,17 @@ namespace DesignPatterns
        
             mysword = new Decorator.FireDecorator(mysword);
             Console.WriteLine($"{mysword.Name} cost {mysword.GetCost()} p.");
+
+            //check facade
+
+            MagicBook mb = new MagicBook();
+            MagicTable mt = new MagicTable();
+            ReagentsCreator rc = new ReagentsCreator();
+
+            MagicRitualFacade mr = new MagicRitualFacade(mb,mt,rc);
+
+            Mage xatab = new Mage();
+            xatab.SummonImp(mr);
 
 
             Console.ReadLine();
