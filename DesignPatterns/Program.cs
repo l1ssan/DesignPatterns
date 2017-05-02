@@ -1,11 +1,11 @@
 ﻿using System;
-using System.ComponentModel;
 using DesignPatterns.Abstract_Factory;
 using DesignPatterns.Adapter;
 using DesignPatterns.Bridge;
 using DesignPatterns.Builder;
 using DesignPatterns.Composite;
 using DesignPatterns.Facade;
+using DesignPatterns.Factory_Method;
 using Player = DesignPatterns.Abstract_Factory.Player;
 using Sword = DesignPatterns.Bridge.Sword;
 
@@ -27,7 +27,7 @@ namespace DesignPatterns
             //check adapter
             AdapterSample();
             //check bridge 
-           
+
             Character myCharacter = new Warrior(new Sword());
             myCharacter.KillMobs();
             myCharacter.GetExp();
@@ -38,7 +38,7 @@ namespace DesignPatterns
             myCharacter.KillMobs();
             myCharacter.GetExp();
 
-           BuilderExample();
+            BuilderExample();
 
             //check composite 
             var objectsCategory = new Category("Objects");
@@ -70,7 +70,7 @@ namespace DesignPatterns
             Decorator.Weapon mysword = new Decorator.Sword("Player1 Sword");
             Console.WriteLine($"{mysword.Name} cost {mysword.GetCost()} p.");
             Console.WriteLine("Update my sword");
-       
+
             mysword = new Decorator.FireDecorator(mysword);
             Console.WriteLine($"{mysword.Name} cost {mysword.GetCost()} p.");
 
@@ -80,11 +80,19 @@ namespace DesignPatterns
             MagicTable mt = new MagicTable();
             ReagentsCreator rc = new ReagentsCreator();
 
-            MagicRitualFacade mr = new MagicRitualFacade(mb,mt,rc);
+            MagicRitualFacade mr = new MagicRitualFacade(mb, mt, rc);
 
             Mage xatab = new Mage();
             xatab.SummonImp(mr);
 
+
+            //abstact method factory
+
+            Developer dev = new WoodDeveloper("poor civilization");
+            var castle = dev.Create();
+
+            dev = new StoneDeveloper("grate civilization");
+            var castle2 = dev.Create();
 
             Console.ReadLine();
 
@@ -94,7 +102,7 @@ namespace DesignPatterns
         public static void AdapterSample()
         {
             var player = new Adapter.Player();
-            
+
             //standart way
             player.Atack(new Glock());
 
@@ -114,7 +122,7 @@ namespace DesignPatterns
             Console.WriteLine(IronSword.ToString());
             // оздаем билдер для пшеничного хлеба
             builder = new AdamantitSwordBuilder();
-            Builder.Sword AdamantitSword =  blacksmith.ForgeSword(builder);
+            Builder.Sword AdamantitSword = blacksmith.ForgeSword(builder);
             Console.WriteLine(AdamantitSword.ToString());
         }
     }
