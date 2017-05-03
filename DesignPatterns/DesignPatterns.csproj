@@ -81,6 +81,8 @@
     <Compile Include="Facade\ReagentsCreator.cs" />
     <Compile Include="Factory Method\Castle.cs" />
     <Compile Include="Factory Method\Developer.cs" />
+    <Compile Include="Flyweight\Construction.cs" />
+    <Compile Include="Flyweight\ConstructionFactory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

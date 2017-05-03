@@ -6,6 +6,7 @@ using DesignPatterns.Builder;
 using DesignPatterns.Composite;
 using DesignPatterns.Facade;
 using DesignPatterns.Factory_Method;
+using DesignPatterns.Flyweight;
 using Player = DesignPatterns.Abstract_Factory.Player;
 using Sword = DesignPatterns.Bridge.Sword;
 
@@ -94,9 +95,30 @@ namespace DesignPatterns
             dev = new StoneDeveloper("grate civilization");
             var castle2 = dev.Create();
 
+
+
+            //check flyweight
+
+            double xstart = 0;
+            double ystart = 0;
+
+            var houseFactory = new ConstructionFactory();
+
+           
+            for (int i = 0; i < 5; i++)
+            {
+                var wmConstruction = houseFactory.GetConstruction("WarMachineFactory");
+                wmConstruction?.Build(xstart, ystart);
+                ystart += 105;
+
+                var brickHouse = houseFactory.GetConstruction("Warehouse");
+                brickHouse?.Build(xstart, ystart);
+                ystart += 205;
+                xstart += 310;
+            }
+
+
             Console.ReadLine();
-
-
         }
 
         public static void AdapterSample()
