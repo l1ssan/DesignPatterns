@@ -119,6 +119,7 @@ namespace DesignPatterns
 
 
             Console.ReadLine();
+
         }
 
         public static void AdapterSample()

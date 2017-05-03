@@ -9,6 +9,7 @@ namespace DesignPatterns.Flyweight
     public abstract class Construction
     {
         protected double Square; 
+
         public abstract void Build(double x, double y);
     }
 
