@@ -24,7 +24,7 @@ namespace DesignPatterns.Builder
 
         public override void SetAdditives()
         {
-            this.Sword.Additives = new Dust() {Name = "Daimond Dust"};
+            this.Sword.Additives = new Dust() {Name = "Diamond Dust"};
         }
     }
 }
