@@ -7,6 +7,7 @@ using DesignPatterns.Composite;
 using DesignPatterns.Facade;
 using DesignPatterns.Factory_Method;
 using DesignPatterns.Flyweight;
+using DesignPatterns.Interpreter;
 using Player = DesignPatterns.Abstract_Factory.Player;
 using Sword = DesignPatterns.Bridge.Sword;
 
@@ -117,6 +118,37 @@ namespace DesignPatterns
                 xstart += 310;
             }
 
+
+
+            //check interpret
+            var context = new Context();
+            
+            double x = 3;
+            double y = 4;
+            double z = 5;
+            double d = 4;
+            double m = 10;
+
+            // add var 
+            context.SetVariable("x", x);
+            context.SetVariable("y", y);
+            context.SetVariable("z", z);
+            context.SetVariable("d", d);
+            context.SetVariable("m", m);
+
+            // exp m*x + y - z/d 
+            IExpression expression = new SubtractExpression(
+                
+                new AddExpression(
+                    new MultExpression(new NumberExpression("x"), new NumberExpression("m")), new NumberExpression("y")
+                ),
+                new DivExpression(new NumberExpression("z"),new NumberExpression("d"))
+                
+            );
+
+            var result = expression.Interpret(context);
+            Console.WriteLine("m*x + y - z/d  result: {0}", result);
+   
 
             Console.ReadLine();
 

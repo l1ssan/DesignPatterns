@@ -83,6 +83,13 @@
     <Compile Include="Factory Method\Developer.cs" />
     <Compile Include="Flyweight\Construction.cs" />
     <Compile Include="Flyweight\ConstructionFactory.cs" />
+    <Compile Include="Interpreter\AddExpression.cs" />
+    <Compile Include="Interpreter\Context.cs" />
+    <Compile Include="Interpreter\DivExpression.cs" />
+    <Compile Include="Interpreter\IExpression.cs" />
+    <Compile Include="Interpreter\MultExpression.cs" />
+    <Compile Include="Interpreter\NumberExpression.cs" />
+    <Compile Include="Interpreter\SubtractExpression.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
