@@ -90,6 +90,11 @@
     <Compile Include="Interpreter\MultExpression.cs" />
     <Compile Include="Interpreter\NumberExpression.cs" />
     <Compile Include="Interpreter\SubtractExpression.cs" />
+    <Compile Include="Iterator\Directory.cs" />
+    <Compile Include="Iterator\File.cs" />
+    <Compile Include="Iterator\FileIterator.cs" />
+    <Compile Include="Iterator\FileManager.cs" />
+    <Compile Include="Iterator\IFileIterator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

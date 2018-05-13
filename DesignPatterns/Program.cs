@@ -8,6 +8,7 @@ using DesignPatterns.Facade;
 using DesignPatterns.Factory_Method;
 using DesignPatterns.Flyweight;
 using DesignPatterns.Interpreter;
+using DesignPatterns.Iterator;
 using Player = DesignPatterns.Abstract_Factory.Player;
 using Sword = DesignPatterns.Bridge.Sword;
 
@@ -148,6 +149,13 @@ namespace DesignPatterns
 
             var result = expression.Interpret(context);
             Console.WriteLine("m*x + y - z/d  result: {0}", result);
+
+
+
+            //check iterator
+            var fm = new FileManager();
+            var dir = new Directory();
+            fm.SeeFiles(dir);
    
 
             Console.ReadLine();
