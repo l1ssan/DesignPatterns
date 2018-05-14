@@ -9,6 +9,7 @@ using DesignPatterns.Factory_Method;
 using DesignPatterns.Flyweight;
 using DesignPatterns.Interpreter;
 using DesignPatterns.Iterator;
+using DesignPatterns.Mediator;
 using Player = DesignPatterns.Abstract_Factory.Player;
 using Sword = DesignPatterns.Bridge.Sword;
 
@@ -106,7 +107,7 @@ namespace DesignPatterns
 
             var houseFactory = new ConstructionFactory();
 
-           
+
             for (int i = 0; i < 5; i++)
             {
                 var wmConstruction = houseFactory.GetConstruction("WarMachineFactory");
@@ -123,7 +124,7 @@ namespace DesignPatterns
 
             //check interpret
             var context = new Context();
-            
+
             double x = 3;
             double y = 4;
             double z = 5;
@@ -139,12 +140,12 @@ namespace DesignPatterns
 
             // exp m*x + y - z/d 
             IExpression expression = new SubtractExpression(
-                
+
                 new AddExpression(
                     new MultExpression(new NumberExpression("x"), new NumberExpression("m")), new NumberExpression("y")
                 ),
-                new DivExpression(new NumberExpression("z"),new NumberExpression("d"))
-                
+                new DivExpression(new NumberExpression("z"), new NumberExpression("d"))
+
             );
 
             var result = expression.Interpret(context);
@@ -156,7 +157,25 @@ namespace DesignPatterns
             var fm = new FileManager();
             var dir = new Directory();
             fm.SeeFiles(dir);
-   
+
+
+
+
+            //check mediator
+            Manager mediator = new Manager();
+            Colleague customer = new Customer(mediator);
+            Colleague vendor = new Vendor(mediator);
+            Colleague woodworker = new Woodworker(mediator);
+
+            mediator.Customer = customer;
+            mediator.WoodWorker = woodworker;
+            mediator.Vendor = vendor;
+            customer.Send("Have an order for a chair");
+            woodworker.Send("chair is done");
+            vendor.Send("chair ready to sell");
+
+            Console.Read();
+
 
             Console.ReadLine();
 
