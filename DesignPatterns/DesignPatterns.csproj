@@ -100,6 +100,9 @@
     <Compile Include="Mediator\Mediator.cs" />
     <Compile Include="Mediator\Vendor.cs" />
     <Compile Include="Mediator\Woodworker.cs" />
+    <Compile Include="Memento\Character.cs" />
+    <Compile Include="Memento\CharMemento.cs" />
+    <Compile Include="Memento\GameSaver.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

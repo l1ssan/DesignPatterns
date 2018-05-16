@@ -10,6 +10,8 @@ using DesignPatterns.Flyweight;
 using DesignPatterns.Interpreter;
 using DesignPatterns.Iterator;
 using DesignPatterns.Mediator;
+using DesignPatterns.Memento;
+using Character = DesignPatterns.Bridge.Character;
 using Player = DesignPatterns.Abstract_Factory.Player;
 using Sword = DesignPatterns.Bridge.Sword;
 
@@ -175,6 +177,24 @@ namespace DesignPatterns
             vendor.Send("chair ready to sell");
 
             Console.Read();
+
+
+            //check memento
+            GameSaver game = new GameSaver();
+            Memento.Character myChar = new Memento.Character();
+            myChar.Run();
+            myChar.CastSpell("dick-bolt");
+ 
+            Console.WriteLine("you killed a pop-up");
+            game.Saves.Push(myChar.SaveState());
+            Console.WriteLine("game saved");
+            myChar.Run();
+            myChar.CastSpell("self-died");
+            
+            myChar.RestoreState(game.Saves.Pop());
+
+             
+
 
 
             Console.ReadLine();
