@@ -11,6 +11,7 @@ using DesignPatterns.Interpreter;
 using DesignPatterns.Iterator;
 using DesignPatterns.Mediator;
 using DesignPatterns.Memento;
+using DesignPatterns.Prototype;
 using Character = DesignPatterns.Bridge.Character;
 using Player = DesignPatterns.Abstract_Factory.Player;
 using Sword = DesignPatterns.Bridge.Sword;
@@ -176,26 +177,38 @@ namespace DesignPatterns
             woodworker.Send("chair is done");
             vendor.Send("chair ready to sell");
 
-            Console.Read();
-
+   
 
             //check memento
             GameSaver game = new GameSaver();
             Memento.Character myChar = new Memento.Character();
             myChar.Run();
             myChar.CastSpell("dick-bolt");
- 
+
             Console.WriteLine("you killed a pop-up");
             game.Saves.Push(myChar.SaveState());
             Console.WriteLine("game saved");
             myChar.Run();
             myChar.CastSpell("self-died");
-            
+
             myChar.RestoreState(game.Saves.Pop());
 
-             
 
+            //check prototype
+            Console.WriteLine("Check Prototype ");
+            var eunit = new EarthUnit(100, 50, "mariner", new Prototype.Weapon { Damage = 20, Name = "bolter", Range = 40 }, 100);
+            var tmpunit = eunit.Clone();
+            Console.WriteLine("Unit 1");
+            eunit.GetInfo();
+            Console.WriteLine("Unit 2 clone 1");
+            tmpunit.GetInfo();
 
+            var funit = new FlightUnit(200, 100, "crusader", new Prototype.Weapon { Damage = 100, Name = "machinegun", Range = 400 }, 200);
+            var tmpfunit = funit.Clone();
+            Console.WriteLine("Unit 3");
+            funit.GetInfo();
+            Console.WriteLine("Unit 4 clone 3");
+            tmpfunit.GetInfo();
 
             Console.ReadLine();
 
