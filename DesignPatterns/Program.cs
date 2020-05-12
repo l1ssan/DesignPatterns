@@ -11,7 +11,9 @@ using DesignPatterns.Interpreter;
 using DesignPatterns.Iterator;
 using DesignPatterns.Mediator;
 using DesignPatterns.Memento;
+using DesignPatterns.Observer;
 using DesignPatterns.Prototype;
+using DesignPatterns.Proxy;
 using Character = DesignPatterns.Bridge.Character;
 using Player = DesignPatterns.Abstract_Factory.Player;
 using Sword = DesignPatterns.Bridge.Sword;
@@ -177,7 +179,7 @@ namespace DesignPatterns
             woodworker.Send("chair is done");
             vendor.Send("chair ready to sell");
 
-   
+
 
             //check memento
             GameSaver game = new GameSaver();
@@ -210,8 +212,43 @@ namespace DesignPatterns
             Console.WriteLine("Unit 4 clone 3");
             tmpfunit.GetInfo();
 
-            Console.ReadLine();
 
+
+            //check proxy
+            //using (IContainer container = new ContainerStorageProxy())
+            //{
+            //    // читаем первую страницу
+            //    Product p1 = container.GetProduct("123ns");
+            //    Console.WriteLine(p1.Text);
+            //    // читаем вторую страницу
+            //    Product p2 = container.GetProduct("433ns");
+            //    Console.WriteLine(p2.Text);
+            //    // возвращаемся на первую страницу    
+            //    p1 = container.GetProduct("123ns");
+            //    Console.WriteLine(p1.Text);
+            //}
+
+            //check observer
+
+            Game gameobs = new Game(123);
+
+            Observer.Player player1 = new Observer.Player("player1", gameobs, 23);
+            Observer.Player player2 = new Observer.Player("player2", gameobs, 44);
+
+            Guest guest = new Guest("guest1", gameobs);
+
+            // game start
+            gameobs.NextMove();
+
+            guest.ExitGame();
+            // имитация торгов
+            gameobs.NextMove();
+
+            player1.ExitGame();
+
+            Console.Read();
+
+            Console.ReadLine();
         }
 
         public static void AdapterSample()
