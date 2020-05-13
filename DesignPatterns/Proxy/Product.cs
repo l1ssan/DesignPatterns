@@ -16,10 +16,13 @@ namespace DesignPatterns.Proxy
         public string Text { get; set; }
     }
 
-    public class ProductContext:DbContext
+    public class ProductContext : DbContext
     {
+        public ProductContext(string connString)
+        {
+            this.Database.Connection.ConnectionString = connString;
+        }
+
         public DbSet<Product> Products { get; set; }
     }
-
-
 }

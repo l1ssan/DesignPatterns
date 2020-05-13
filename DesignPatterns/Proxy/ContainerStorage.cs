@@ -4,7 +4,15 @@ namespace DesignPatterns.Proxy
 {
     public class ContainerStorage : IContainer
     {
-        ProductContext database = new ProductContext();
+        ProductContext database;
+
+        public ContainerStorage()
+        {
+            //work with ef just change your pc name and add some records  
+            string constring = "Data Source=USER-PC;Initial Catalog=proxycheckdb;Integrated Security=True";
+            database = new ProductContext(constring);
+        }
+
 
         public void Dispose()
         {

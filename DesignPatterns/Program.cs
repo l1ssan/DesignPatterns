@@ -215,18 +215,25 @@ namespace DesignPatterns
 
 
             //check proxy
-            //using (IContainer container = new ContainerStorageProxy())
-            //{
-            //    // читаем первую страницу
-            //    Product p1 = container.GetProduct("123ns");
-            //    Console.WriteLine(p1.Text);
-            //    // читаем вторую страницу
-            //    Product p2 = container.GetProduct("433ns");
-            //    Console.WriteLine(p2.Text);
-            //    // возвращаемся на первую страницу    
-            //    p1 = container.GetProduct("123ns");
-            //    Console.WriteLine(p1.Text);
-            //}
+            using (IContainer container = new ContainerStorageProxy())
+            {
+                //get 1 product
+                Product p1 = container.GetProduct("123ns");
+                if (p1 != null)
+                    Console.WriteLine(p1.Text);
+                //get 2 product
+                Product p2 = container.GetProduct("433ns");
+                if (p2 != null)
+                    Console.WriteLine(p2.Text);
+
+                Product p3 = container.GetProduct("434ns");
+                if (p3 != null)
+                    Console.WriteLine(p2.Text);
+                else
+                {
+                    Console.WriteLine("There is no 434ns you are looking for");
+                }
+            }
 
             //check observer
 

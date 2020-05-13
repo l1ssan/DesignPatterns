@@ -8,13 +8,12 @@ namespace DesignPatterns.Proxy
 {
     public class ContainerStorageProxy : IContainer
     {
-        private List<Product> products;
+        private List<Product> products = new List<Product>();
 
         ContainerStorage containerStorage;
 
         public ContainerStorageProxy()
         {
-            products = new List<Product>();
         }
 
         public Product GetProduct(string number)
