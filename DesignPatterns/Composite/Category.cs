@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DesignPatterns.Composite
 {
@@ -23,7 +20,10 @@ namespace DesignPatterns.Composite
         {
             MenuItems.Remove(item);
 
+
+
         }
+
 
         public override Component GetCopy()
         {

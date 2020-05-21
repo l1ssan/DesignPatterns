@@ -129,6 +129,12 @@
     <Compile Include="Proxy\ContainerStorageProxy.cs" />
     <Compile Include="Proxy\IContainer.cs" />
     <Compile Include="Proxy\Product.cs" />
+    <Compile Include="State\DamagedHouseState.cs" />
+    <Compile Include="State\DestroyedHouseState.cs" />
+    <Compile Include="State\GoodConditionHouseState.cs" />
+    <Compile Include="State\HouseUnderConstructionState.cs" />
+    <Compile Include="State\House.cs" />
+    <Compile Include="State\IBuildingState.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

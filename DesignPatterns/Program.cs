@@ -14,19 +14,23 @@ using DesignPatterns.Memento;
 using DesignPatterns.Observer;
 using DesignPatterns.Prototype;
 using DesignPatterns.Proxy;
+using DesignPatterns.State;
 using Character = DesignPatterns.Bridge.Character;
 using Player = DesignPatterns.Abstract_Factory.Player;
 using Sword = DesignPatterns.Bridge.Sword;
 
 namespace DesignPatterns
 {
+
+
     class Program
     {
         static void Main(string[] args)
         {
+
             var warPlayer = new Player(new WarriorFactory());
             var archPlayer = new Player(new ArcherFactory());
-
+            
             warPlayer.Hit();
             warPlayer.Run();
 
@@ -72,7 +76,6 @@ namespace DesignPatterns
             weaponCategory.Print();
 
             armorCategory.Print();
-
 
             //check decorator
 
@@ -215,25 +218,25 @@ namespace DesignPatterns
 
 
             //check proxy
-            using (IContainer container = new ContainerStorageProxy())
-            {
-                //get 1 product
-                Product p1 = container.GetProduct("123ns");
-                if (p1 != null)
-                    Console.WriteLine(p1.Text);
-                //get 2 product
-                Product p2 = container.GetProduct("433ns");
-                if (p2 != null)
-                    Console.WriteLine(p2.Text);
+            //using (IContainer container = new ContainerStorageProxy())
+            //{
+            //    //get 1 product
+            //    Product p1 = container.GetProduct("123ns");
+            //    if (p1 != null)
+            //        Console.WriteLine(p1.Text);
+            //    //get 2 product
+            //    Product p2 = container.GetProduct("433ns");
+            //    if (p2 != null)
+            //        Console.WriteLine(p2.Text);
 
-                Product p3 = container.GetProduct("434ns");
-                if (p3 != null)
-                    Console.WriteLine(p2.Text);
-                else
-                {
-                    Console.WriteLine("There is no 434ns you are looking for");
-                }
-            }
+            //    Product p3 = container.GetProduct("434ns");
+            //    if (p3 != null)
+            //        Console.WriteLine(p2.Text);
+            //    else
+            //    {
+            //        Console.WriteLine("There is no 434ns you are looking for");
+            //    }
+            //}
 
             //check observer
 
@@ -253,9 +256,27 @@ namespace DesignPatterns
 
             player1.ExitGame();
 
+
+
+
+
+
+
+            //check state
+
+
+            var myHouse = new House(new HouseUnderConstructionState());
+            myHouse.Build();
+            myHouse.Damage();
+            myHouse.Repair();
+
+
+
             Console.Read();
 
             Console.ReadLine();
+
+           
         }
 
         public static void AdapterSample()
