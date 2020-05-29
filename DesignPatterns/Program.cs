@@ -15,6 +15,7 @@ using DesignPatterns.Observer;
 using DesignPatterns.Prototype;
 using DesignPatterns.Proxy;
 using DesignPatterns.State;
+using DesignPatterns.Strategy;
 using Character = DesignPatterns.Bridge.Character;
 using Player = DesignPatterns.Abstract_Factory.Player;
 using Sword = DesignPatterns.Bridge.Sword;
@@ -30,7 +31,7 @@ namespace DesignPatterns
 
             var warPlayer = new Player(new WarriorFactory());
             var archPlayer = new Player(new ArcherFactory());
-            
+
             warPlayer.Hit();
             warPlayer.Run();
 
@@ -270,13 +271,31 @@ namespace DesignPatterns
             myHouse.Damage();
             myHouse.Repair();
 
+            Console.WriteLine();
+            //check strategy
+
+            var prods = new Strategy.Product[5] { new Strategy.Product { Id = 1, Name = "lamp", Place = "A1", Qty = 10 },
+                                                  new Strategy.Product { Id = 2, Name = "table", Place = "A2", Qty = 11 },
+                                                  new Strategy.Product { Id = 3, Name = "mouse", Place = "A3", Qty = 12 },
+                                                  new Strategy.Product { Id = 4, Name = "notebook", Place = "A4", Qty = 13 },
+                                                  new Strategy.Product { Id = 5, Name = "cabel", Place = "A5", Qty = 14 } };
+            Console.WriteLine("Get LIFO Prods");
+            Strategy.Warehouse whs = new Strategy.Warehouse(prods, new LIFO());
+            Console.WriteLine();
+            whs.GetAllProduct();
+            Console.WriteLine();
+            Console.WriteLine("Get FIFO Prods");
+            Console.WriteLine();
+            whs.GetFromType = new FIFO();
+            whs.GetAllProduct();
+
 
 
             Console.Read();
 
             Console.ReadLine();
 
-           
+
         }
 
         public static void AdapterSample()
