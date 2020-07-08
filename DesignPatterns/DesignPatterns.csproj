@@ -139,6 +139,9 @@
     <Compile Include="Strategy\IGetFromType.cs" />
     <Compile Include="Strategy\LIFO.cs" />
     <Compile Include="Strategy\Warehouse.cs" />
+    <Compile Include="TemplateMethod\Forging.cs" />
+    <Compile Include="TemplateMethod\ForgeStrongSword.cs" />
+    <Compile Include="TemplateMethod\ForgeSword.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

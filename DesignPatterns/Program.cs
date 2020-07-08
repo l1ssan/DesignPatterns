@@ -1,5 +1,4 @@
-﻿using System;
-using DesignPatterns.Abstract_Factory;
+﻿using DesignPatterns.Abstract_Factory;
 using DesignPatterns.Adapter;
 using DesignPatterns.Bridge;
 using DesignPatterns.Builder;
@@ -13,9 +12,10 @@ using DesignPatterns.Mediator;
 using DesignPatterns.Memento;
 using DesignPatterns.Observer;
 using DesignPatterns.Prototype;
-using DesignPatterns.Proxy;
 using DesignPatterns.State;
 using DesignPatterns.Strategy;
+using DesignPatterns.TemplateMethod;
+using System;
 using Character = DesignPatterns.Bridge.Character;
 using Player = DesignPatterns.Abstract_Factory.Player;
 using Sword = DesignPatterns.Bridge.Sword;
@@ -288,6 +288,17 @@ namespace DesignPatterns
             Console.WriteLine();
             whs.GetFromType = new FIFO();
             whs.GetAllProduct();
+
+
+
+            Console.WriteLine();
+
+            //check template method
+
+            var sword = new ForgeSword();
+            sword.Forge();
+            var strongSword = new ForgeStrongSword();
+            strongSword.Forge();
 
 
 
