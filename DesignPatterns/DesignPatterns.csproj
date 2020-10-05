@@ -142,6 +142,13 @@
     <Compile Include="TemplateMethod\Forging.cs" />
     <Compile Include="TemplateMethod\ForgeStrongSword.cs" />
     <Compile Include="TemplateMethod\ForgeSword.cs" />
+    <Compile Include="Visitor\ExportStatVisitor.cs" />
+    <Compile Include="Visitor\Game.cs" />
+    <Compile Include="Visitor\GMVisitor.cs" />
+    <Compile Include="Visitor\Guild.cs" />
+    <Compile Include="Visitor\IAccount.cs" />
+    <Compile Include="Visitor\IVisitor.cs" />
+    <Compile Include="Visitor\Player.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

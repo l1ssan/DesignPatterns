@@ -15,6 +15,7 @@ using DesignPatterns.Prototype;
 using DesignPatterns.State;
 using DesignPatterns.Strategy;
 using DesignPatterns.TemplateMethod;
+using DesignPatterns.Visitor;
 using System;
 using Character = DesignPatterns.Bridge.Character;
 using Player = DesignPatterns.Abstract_Factory.Player;
@@ -241,7 +242,7 @@ namespace DesignPatterns
 
             //check observer
 
-            Game gameobs = new Game(123);
+            Observer.Game gameobs = new Observer.Game(123);
 
             Observer.Player player1 = new Observer.Player("player1", gameobs, 23);
             Observer.Player player2 = new Observer.Player("player2", gameobs, 44);
@@ -256,10 +257,6 @@ namespace DesignPatterns
             gameobs.NextMove();
 
             player1.ExitGame();
-
-
-
-
 
 
 
@@ -300,6 +297,16 @@ namespace DesignPatterns
             var strongSword = new ForgeStrongSword();
             strongSword.Forge();
 
+
+
+            //check visitor
+
+            var mmogame = new Visitor.Game();
+
+            mmogame.Register(new Visitor.Player { Name = "PlayerKiller", Strength=101, RegId = "82181212" });
+            mmogame.Register(new Visitor.Guild { Name = "LostHaven", Power=99, RegId = "3424131445" });
+            mmogame.Accept(new ExportStatVisitor());
+            mmogame.Accept(new GMVisitor());
 
 
             Console.Read();
